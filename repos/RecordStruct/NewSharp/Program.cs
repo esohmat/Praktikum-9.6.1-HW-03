@@ -27,31 +27,29 @@ class Program
             }
             catch (MyCutomException ex)
             {
-                Console.WriteLine("Поймано сообщение исключение: {ex.Message");
+                Console.WriteLine($"Поймано сообщение исключение: {ex.Message}");
             }
          
-            catch(ArgumentNullException ex)
+            catch (ArgumentNullException ex)
             {
                 Console.WriteLine($"Поймано ArgumentNullException: {ex.Message}");
-                Console.WriteLine($"Имя параметра:{ex.Message}");
+                Console.WriteLine($"Имя параметра: {ex.ParamName}");
             }
           
-            catch(ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException ex)
             {
                 Console.WriteLine($"Поймано ArgumentOutOfRangeException: {ex.Message}");
-                Console.WriteLine($"Имя параметра:{ex.Message}");
+                Console.WriteLine($"Имя параметра: {ex.ParamName}");
             }
            
             catch (DivideByZeroException ex)
             {
-                Console.WriteLine($"Поймано DivideByZeroException:{ex.Message}");
-                Console.WriteLine($"Имя параметра:{ex.Message}");
+                Console.WriteLine($"Поймано DivideByZeroException: {ex.Message}");
             }
            
-            catch(InvalidOperationException ex)
+            catch (InvalidOperationException ex)
             {
-                Console.WriteLine($"Поймано InvalidOperationException:{ex.Message}");
-                Console.WriteLine($"Имя параметра:{ex.Message}");
+                Console.WriteLine($"Поймано InvalidOperationException: {ex.Message}");
             }
 
             finally
@@ -65,17 +63,17 @@ class Program
                     {
                         throw new MyCutomException("Внешнее исключение");
                     }
-                    catch(MyCutomException ex)
+                    catch (MyCutomException ex)
                     {
                         throw new ArgumentNullException("Внутреннее исключение", ex);
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Внешнее исключение:{ex.Message}");
+                    Console.WriteLine($"Внешнее исключение: {ex.Message}");
                     if(ex.InnerException != null)
                     {
-                        Console.WriteLine($"Внутренее исключение:{ex.InnerException.Message}");
+                        Console.WriteLine($"Внутренее исключение: {ex.InnerException.Message}");
                     }
                 }
             }
